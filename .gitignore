@@ -124,8 +124,6 @@ venv.bak/
 data
 results*
 *.pth
-*.png
 *.bin
 *.pyc
-*.png
 opts/__pycache__
