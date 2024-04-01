@@ -1,0 +1,39 @@
+DATA:
+  data_name: OpenEarthMap few-shot challenge
+  data_root: /irsa/CVPR2024-OEM-fewshot-optuna/data/testset # Download the 'valset' and set your data_root to 'valset' folder
+  images_dir: images/
+  labels_dir: labels/
+  data_list_path: /irsa/CVPR2024-OEM-fewshot-optuna/data/test.json
+  novel_classes: # Change the novel classnames for Validation/Testing. The current classnames are Validation classes
+    8: "vehicle & cargo-trailer"
+    9: "parking space"
+    10: "sports field"
+    11: "building type 2"
+  workers: 4
+  image_size: 1024
+  mean: [0.4449, 0.4570, 0.3919]
+  std: [0.1662, 0.1492, 0.1505]
+  pin_memory: True
+
+MODEL:
+    model_name: UPerNet
+    encoder_name: tu-convnext_large_mlp.clip_laion2b_ft_soup_320
+    pretrained: weight/UPerNet-tu-convnext_large_mlp.clip_laion2b_ft_soup_320_s0_CE_DICE_best.pth
+
+EVALUATION:
+  shot: 5 # Only 5-shot is allowed
+  save_pred_maps: True
+  save_ious: True
+  batch_size_val: 1 # Only batch size 1 is supported (Evaluate one query image at a time)
+  shuffle_test_data: False
+  manual_seed: 2023
+  gpus: [0]
+
+CLASSIFIER: # All the settings here are from the baseline paper
+  weights: [650, 3, 16, 7]
+  epoch_LDAM: 101
+  adapt_iter: 130
+  cls_lr: 0.00009
+  pi_estimation_strategy: self
+  pi_update_at: [10, 20, 30, 40, 50, 100]
+  fine_tune_base_classifier: True
