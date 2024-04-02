@@ -36,7 +36,7 @@ for fn_img in label_pths_png:
     filename = os.path.splitext(os.path.basename(fn_img))[0]
     image = cv2.imread(os.path.join(image_paths_tif, filename + '.tif'))
     image = cv2.resize(image, (1024, 1024), interpolation=cv2.INTER_NEAREST)
-    mash_num = 7
+    mash_num = 11
     mask[mask != mash_num] = 0
     mask[mask == mash_num] = 255
    
@@ -47,6 +47,7 @@ for fn_img in label_pths_png:
     output[output < a] = 0
     output[output == 255] = mash_num
     cv2.imwrite(os.path.join(OUT_DIR_b2, filename + '.png'), output)
+
 
 
 
