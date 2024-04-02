@@ -2,7 +2,7 @@
 
 # Class Similarity Transition: Decoupling Class Similarities and Imbalance from Generalized Few-shot Segmentation
 
-This repository contains the code for our **CVPR 2023** paper, [A Strong Baseline for Generalized Few-Shot Semantic Segmentation](https://arxiv.org/abs/2211.14126).
+This repository contains the code for our paper, [Class Similarity Transition: Decoupling Class Similarities and Imbalance from Generalized Few-shot Segmentation]().
 
 > **Abstract:** *In Generalized Few-shot Segmentation (GFSS), a model is trained with a large corpus of base class samples and then adapted on limited samples of novel classes. This paper focuses on the relevance between base and novel classes, and improves GFSS in two aspects: 1) mining the similarity between base and novel classes to promote the learning of novel classes, and 2) mitigating the class imbalance issue caused by the volume difference between the support set and the training set. Specifically, we first propose a similarity transition matrix to guide the learning of novel classes with base class knowledge. Then, we leverage the Label-Distribution-Aware Margin (LDAM) loss and Transductive Inference to the GFSS task to address the problem of class imbalance as well as overfitting the support set. In addition, by extending the probability transition matrix, the proposed method can mitigate the catastrophic forgetting of base classes when learning novel classes. With a simple training phase, our proposed method can be applied to any segmentation network trained on base classes. We validated our methods on the adapted version of OpenEarthMap. Compared to existing GFSS baselines, our method excels them all from 3\% to 7\% and ranks second in the OpenEarthMap Land Cover Mapping Few-Shot Challenge at the completion of this paper.*
 
@@ -15,7 +15,7 @@ We used `Python 3.9` in our experiments and the list of packages is available in
 
 #### Pre-processed data from drive
 
-We provide the versions of OpenEarthMap datasets used in this work [here](https://zenodo.org/records/10828417). You can download the full .zip and directly extract it in the `data/` folder.
+We use a [adapted version](https://zenodo.org/records/10828417) of OpenEarthMap datasets. You can download the full .zip and directly extract it in the `data/` folder.
 
 #### From scratch
 
@@ -42,10 +42,10 @@ data
 
 ```
 
-### :three: Download pre-trained models
+<!-- ### :three: Download pre-trained models
 
 #### Pre-trained backbone and models
-We provide the pre-trained backbone and models at - https://huggingface.co/laion/CLIP-convnext_large_d_320.laion2B-s29B-b131K-ft-soup/tree/main. You can download them and directly extract them at the root of `pretrain/`.
+We provide the pre-trained backbone and models at - https://huggingface.co/laion/CLIP-convnext_large_d_320.laion2B-s29B-b131K-ft-soup/tree/main. You can download them and directly extract them at the root of `pretrain/`. -->
 
 ## &#x1F5FA; Overview of the repo
 
@@ -54,11 +54,6 @@ Default configuration files can be found in `config/`. Data are located in `data
 ## &#x2699; Training 
 
 We use [ClassTrans-Train](https://github.com/earth-insights/ClassTrans-Train) to train models on base classes. We suggest to skip this step and directly use this **[checkpoint](https://drive.google.com/file/d/1H9Z9bLU46tDoqXHEhc4BduQ_Vs2RqGvM/view?usp=sharing)** to reimplement our results.
-
-```bash
-cd ClassTrans-Train
-python train.py
-```
 
 ## &#x1F9EA; Testing
 
