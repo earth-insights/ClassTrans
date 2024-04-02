@@ -1,9 +1,9 @@
 DATA:
   data_name: OpenEarthMap few-shot challenge
-  data_root: /irsa/CVPR2024-OEM-fewshot-optuna/data/testset # Download the 'valset' and set your data_root to 'valset' folder
+  data_root: data/testset # Download the 'valset' and set your data_root to 'valset' folder
   images_dir: images/
   labels_dir: labels/
-  data_list_path: /irsa/CVPR2024-OEM-fewshot-optuna/data/test.json
+  data_list_path: data/test.json
   novel_classes: # Change the novel classnames for Validation/Testing. The current classnames are Validation classes
     8: "vehicle & cargo-trailer"
     9: "parking space"

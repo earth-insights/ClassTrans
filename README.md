@@ -68,7 +68,7 @@ bash test.sh
 
 ## &#x1F9CA; Post-processing
 
-In `test.py`, you can find some post-processing of the prediction masks with extra input files, which are obtained via a vision-language model [APE](https://arxiv.org/abs/2312.02153) and a class agnostic mask refinement model [CascadePSP](https://arxiv.org/abs/2005.02551). We provide these files in the `Class-Trans/post-process` directory, if you want to reproduce our results step by step, you can refer to the following:
+In `test.py`, you can find some post-processing of the prediction masks with extra input files, which are obtained via a vision-language model [APE](https://arxiv.org/abs/2312.02153) and a class-agnostic mask refinement model [CascadePSP](https://arxiv.org/abs/2005.02551). We provide these files in the `Class-Trans/post-process` directory. If you want to reproduce our results step by step, you can refer to the following:
 
 ### APE
 
@@ -102,9 +102,9 @@ python tools/patch2image.py
 
 Note: We have confirmed that using the foundation model is consistent with the challenge rules.
 
-### mask refinement
+### Mask Refinement
 
-We use CascadePSP to refine the mask of building type 1 & 2
+We use [CascadePSP](https://github.com/hkchengrex/CascadePSP) to refine the mask of building type 1 & 2
 
 ```bash
 # install segmentation_refinement
@@ -139,7 +139,7 @@ The weighted average is calculated using `0.4:0.6 => base:novel` based on SOA GF
 
 ## &#x1F64F; Acknowledgments
 
-We gratefully thank the authors of [BAM](https://github.com/chunbolang/BAM), [DIAM](https://github.com/sinahmr/DIaM), [APE](https://github.com/shenyunhang/APE), [CascadePSP](https://github.com/hkchengrex/CascadePSP/tree/master) and [PyTorch Semantic Segmentation](https://github.com/hszhao/semseg) from which some parts of our code are inspired.
+We gratefully thank the authors of [BAM](https://github.com/chunbolang/BAM), [DIAM](https://github.com/sinahmr/DIaM), [APE](https://github.com/shenyunhang/APE), [CascadePSP](https://github.com/hkchengrex/CascadePSP) and [PyTorch Semantic Segmentation](https://github.com/hszhao/semseg) from which some parts of our code are inspired.
 
 ## &#x1F4DA; Citation
 
